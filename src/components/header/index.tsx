@@ -14,11 +14,11 @@ export const Header = () => (
   <header className="flex justify-center p-4">
     <Sheet>
       <SheetTrigger asChild>
-        <Button>Registrar Endereço</Button>
+        <Button>Registrar Contato</Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Registrar Endereço</SheetTitle>
+          <SheetTitle>Registrar Contato</SheetTitle>
           <SheetDescription>
             Preencha os campos abaixo para registrar um novo endereço.
           </SheetDescription>
