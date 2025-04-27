@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { IContact } from "@/contexts/contacts-context/interfaces";
 
+import { DeleteContactDialog } from "./delete-contact-dialog";
 import { UpdateContactForm } from "./update-contact-form";
 
 export const ContactCardForms = ({
@@ -18,9 +19,7 @@ export const ContactCardForms = ({
   contact: Pick<IContact, "id" | "displayName" | "username">;
 }) => (
   <CardFooter className="mt-auto flex w-full flex-wrap gap-x-4 gap-y-2 p-0">
-    <Button className="min-w-40 flex-1" variant="destructive">
-      Deletar
-    </Button>
+    <DeleteContactDialog contact={contact} />
     <Sheet>
       <SheetTrigger asChild>
         <Button className="min-w-40 flex-1">Editar</Button>
