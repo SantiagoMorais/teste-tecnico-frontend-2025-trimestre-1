@@ -9,20 +9,8 @@ export const Footer = ({
   hasMore: boolean;
   onLoadMore: () => void;
 }) => {
-  const content = () => {
-    if (hasMore)
-      return (
-        <>
-          <Plus /> Carregar mais
-        </>
-      );
-
-    return (
-      <>
-        <X /> Fim da lista
-      </>
-    );
-  };
+  const Icon = hasMore ? Plus : X;
+  const label = hasMore ? "Carregar mais" : "Fim da lista";
 
   return (
     <footer className="fixed bottom-0 mt-auto flex w-full max-w-(--breakpoints-2xl) justify-center py-4">
@@ -31,7 +19,7 @@ export const Footer = ({
         onClick={onLoadMore}
         className="ring-background ring-4"
       >
-        {content()}
+        <Icon /> {label}
       </Button>
     </footer>
   );
