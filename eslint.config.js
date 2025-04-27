@@ -7,6 +7,7 @@ import prettierPlugin from "eslint-plugin-prettier";
 import prettierConfig from "eslint-config-prettier";
 import typescriptPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -24,6 +25,7 @@ export default tseslint.config(
       typescriptPlugin,
       prettierPlugin,
       prettierConfig,
+      "simple-import-sort": simpleImportSort,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -31,6 +33,8 @@ export default tseslint.config(
         "warn",
         { allowConstantExport: true },
       ],
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
     },
   }
 );
