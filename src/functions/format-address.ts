@@ -2,12 +2,16 @@ import { IGetAddressByZipCode } from "@/core/interfaces/get-address-by-zip-code"
 
 export const formatAddress = ({
   address,
+  complement,
 }: {
   address: Omit<IGetAddressByZipCode, "erro">;
+  complement?: string;
 }) => {
-  const { bairro, complemento, localidade, logradouro, uf } = address;
+  const { bairro, localidade, logradouro, uf } = address;
 
-  const formattedAddress = `${logradouro}, ${complemento ? complemento + ", " : ""}${bairro}, ${localidade} - ${uf}`;
+  console.log(address);
+
+  const formattedAddress = `${logradouro}, ${complement ? complement + ", " : ""}${bairro}, ${localidade} - ${uf}`;
 
   return formattedAddress;
 };

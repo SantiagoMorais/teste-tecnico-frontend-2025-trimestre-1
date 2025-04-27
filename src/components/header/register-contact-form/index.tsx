@@ -40,7 +40,10 @@ export const RegisterContactForm = () => {
 
     const address = await getAddressByZipCode({ zipCode: data.zipCode });
 
-    const formatedAddress = formatAddress({ address });
+    const formatedAddress = formatAddress({
+      address,
+      complement: data.complement,
+    });
 
     registerContact({
       contact: {
