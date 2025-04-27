@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/sheet";
 
 import { Button } from "../ui/button";
-import { RegisterAddressForm } from "./register-address-form";
+import { RegisterContactForm } from "./register-contact-form";
 
 export const Header = () => (
   <header className="flex justify-center p-4">
@@ -23,7 +23,7 @@ export const Header = () => (
             Preencha os campos abaixo para registrar um novo endereço.
           </SheetDescription>
         </SheetHeader>
-        <RegisterAddressForm />
+        <RegisterContactForm />
       </SheetContent>
     </Sheet>
   </header>

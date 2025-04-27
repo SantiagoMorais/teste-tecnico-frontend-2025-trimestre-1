@@ -1,4 +1,4 @@
-export const RegisterAddressForm = () => {
+export const RegisterContactForm = () => {
     return (
         <>
         </>
