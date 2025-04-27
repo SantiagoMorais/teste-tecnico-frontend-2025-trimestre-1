@@ -1,9 +1,7 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -14,6 +12,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { IContact } from "@/contexts/contacts-context/interfaces";
+
+import { ContactCardFooter } from "./contact-card-footer";
 
 export const ContactsList = ({ contacts }: { contacts: IContact[] }) => (
   <ul className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -43,12 +43,7 @@ export const ContactsList = ({ contacts }: { contacts: IContact[] }) => (
             </Tooltip>
           </TooltipProvider>
         </CardContent>
-        <CardFooter className="mt-auto flex w-full flex-wrap gap-x-4 gap-y-2 p-0">
-          <Button className="min-w-40 flex-1" variant="destructive">
-            Deletar
-          </Button>
-          <Button className="min-w-40 flex-1">Editar</Button>
-        </CardFooter>
+        <ContactCardFooter contact={contact} />
       </Card>
     ))}
   </ul>
