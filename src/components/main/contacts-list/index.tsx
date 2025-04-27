@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/tooltip";
 import { IContact } from "@/contexts/contacts-context/interfaces";
 
-import { ContactCardFooter } from "./contact-card-footer";
+import { ContactCardForms } from "./contact-card-forms";
 
 export const ContactsList = ({ contacts }: { contacts: IContact[] }) => (
   <ul className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -43,7 +43,7 @@ export const ContactsList = ({ contacts }: { contacts: IContact[] }) => (
             </Tooltip>
           </TooltipProvider>
         </CardContent>
-        <ContactCardFooter contact={contact} />
+        <ContactCardForms contact={contact} />
       </Card>
     ))}
   </ul>

@@ -10,9 +10,9 @@ import {
 } from "@/components/ui/sheet";
 import { IContact } from "@/contexts/contacts-context/interfaces";
 
-import { UpdateContactForm } from "../update-contact-form";
+import { UpdateContactForm } from "./update-contact-form";
 
-export const ContactCardFooter = ({
+export const ContactCardForms = ({
   contact,
 }: {
   contact: Pick<IContact, "id" | "displayName" | "username">;
