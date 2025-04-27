@@ -1,10 +1,8 @@
-import { useContacts } from "@/contexts/contacts-context/hooks";
+import { IContact } from "@/contexts/contacts-context/interfaces";
 
 import { ContactsList } from "./contacts-list";
 
-export const Main = () => {
-  const { contacts } = useContacts();
-
+export const Main = ({ contacts }: { contacts: IContact[] }) => {
   const content = () => {
     if (contacts.length > 0) return <ContactsList contacts={contacts} />;
     return <p className="text-center">Nenhum contato registrado.</p>;
