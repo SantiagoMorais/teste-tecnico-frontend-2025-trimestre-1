@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { PatternFormat } from "react-number-format";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,20 +13,47 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useContacts } from "@/contexts/contacts-context/hooks";
 import {
   registerContactFormSchema,
   TRegisterContactFormSchema,
 } from "@/core/types/register-contact-form-schema";
+import { formatAddress } from "@/functions/format-address";
+import { getAddressByZipCode } from "@/functions/get-address-by-zip-code";
 import { registerContactFormDefaultValues } from "@/utils/register-contact-form-default-values";
 
 export const RegisterContactForm = () => {
+  const { registerContact, contacts } = useContacts();
   const form = useForm<TRegisterContactFormSchema>({
     resolver: zodResolver(registerContactFormSchema),
     defaultValues: registerContactFormDefaultValues,
   });
 
-  const onSubmit = (data: TRegisterContactFormSchema) => {
-    console.log(data);
+  const onSubmit = async (data: TRegisterContactFormSchema) => {
+    if (contacts?.find((contact) => contact.cep === data.zipCode)) {
+      form.setError("zipCode", {
+        type: "manual",
+        message: "Esse CEP já está cadastrado.",
+      });
+      return;
+    }
+
+    const address = await getAddressByZipCode({ zipCode: data.zipCode });
+
+    const formatedAddress = formatAddress({ address });
+
+    registerContact({
+      contact: {
+        id: crypto.randomUUID(),
+        username: data.username,
+        displayName: data.displayName,
+        cep: data.zipCode,
+        address: formatedAddress,
+      },
+    });
+
+    form.reset();
+    toast.success("Contato cadastrado com sucesso!");
   };
 
   return (
