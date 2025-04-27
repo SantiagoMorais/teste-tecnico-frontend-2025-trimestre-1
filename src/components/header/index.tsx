@@ -22,7 +22,7 @@ export const Header = () => (
           <SheetDescription>
             Preencha os campos abaixo para registrar um novo endereço.
           </SheetDescription>
-        </SheetHeader>
+        </SheetHeader> 
         <RegisterContactForm />
       </SheetContent>
     </Sheet>
