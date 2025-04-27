@@ -9,6 +9,14 @@ export interface IContact {
 export interface IHandleContactContext {
   contacts: IContact[];
   registerContact: ({ contact }: { contact: IContact }) => void;
-  updateContact: ({ contact }: { contact: IContact }) => void;
+  updateContact: ({
+    displayName,
+    id,
+    username,
+  }: {
+    id: string;
+    username: string;
+    displayName: string;
+  }) => void;
   deleteContact: ({ id }: { id: string }) => void;
 }

@@ -17,10 +17,18 @@ export const ContactsProvider = ({ children }: React.PropsWithChildren) => {
     });
   };
 
-  const updateContact = ({ contact }: { contact: IContact }) => {
+  const updateContact = ({
+    displayName,
+    id,
+    username,
+  }: {
+    id: string;
+    username: string;
+    displayName: string;
+  }) => {
     setContacts((prevContacts) => {
       const updatedContacts = prevContacts.map((c) =>
-        c.id === contact.id ? contact : c
+        c.id === id ? { ...c, displayName, username } : c
       );
       localStorage.setItem("contacts", JSON.stringify(updatedContacts));
       return updatedContacts;
