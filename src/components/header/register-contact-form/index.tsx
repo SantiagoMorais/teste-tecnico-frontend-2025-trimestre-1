@@ -52,6 +52,7 @@ export const RegisterContactForm = () => {
         displayName: data.displayName,
         cep: data.zipCode,
         address: formatedAddress,
+        createdAt: new Date().toISOString(),
       },
     });
 

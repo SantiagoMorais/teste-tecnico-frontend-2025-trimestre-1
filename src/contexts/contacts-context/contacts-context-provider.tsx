@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { IUpdateContact } from "@/core/interfaces/update-contact";
+
 import { ContactsContext } from "./contacts-context";
 import { IContact } from "./interfaces";
 
@@ -21,14 +23,11 @@ export const ContactsProvider = ({ children }: React.PropsWithChildren) => {
     displayName,
     id,
     username,
-  }: {
-    id: string;
-    username: string;
-    displayName: string;
-  }) => {
+    updatedAt,
+  }: IUpdateContact) => {
     setContacts((prevContacts) => {
       const updatedContacts = prevContacts.map((c) =>
-        c.id === id ? { ...c, displayName, username } : c
+        c.id === id ? { ...c, displayName, username, updatedAt } : c
       );
       localStorage.setItem("contacts", JSON.stringify(updatedContacts));
       return updatedContacts;

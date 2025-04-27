@@ -46,6 +46,7 @@ export const UpdateContactForm = ({
       id: contact.id,
       username: data.username,
       displayName: data.displayName,
+      updatedAt: new Date().toISOString(),
     });
 
     toast.success("Contato atualizado com sucesso!");
