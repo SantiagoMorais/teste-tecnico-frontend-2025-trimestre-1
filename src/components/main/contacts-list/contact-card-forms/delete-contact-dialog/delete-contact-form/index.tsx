@@ -71,7 +71,7 @@ export const DeleteContactForm = ({
           />
         </div>
         <Button type="submit" variant="destructive" className="mt-auto w-full">
-          Atualizar
+          Excluir
         </Button>
       </form>
     </Form>
